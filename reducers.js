@@ -10,3 +10,10 @@ export default function counter(state = 0, action) {
       return state
   }
 }
+
+export function increment(index) {
+  return{
+    type: 'INCREMENT_LIKES',
+    index
+  }
+}
