@@ -34,13 +34,14 @@ const { post, i } = this.props;
 
 class Sport extends React.Component {
     render() {
-  const { post, i} = this.props;
+  const { post} = this.props;
         return (
         <div className="sport-container">
             <header className="header-dropdown">
-                <h2 className="fl">222</h2>
+                <h2 className="fl">{post.likes}</h2>
+                <button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
                 <Counter
-                  value={store.getState()}
+                  value="{store.getState()}"
                   onIncrementAsync={() => action('INCREMENT_ASYNC')}
                 />
 
@@ -49,16 +50,17 @@ class Sport extends React.Component {
       )
   }
 }
-
+//
 //renderStore()
-store.subscribe(renderStore)
+//store.subscribe(renderStore)
 
 
 const Grid = React.createClass({
   render() {
+    const post = this.props.posts[0];
     return (
           <div className="photo-grid">
-        <Sport {...this.props} sport="Football"/>
+        <Sport i={0} post={post} {...this.props} />
       </div>
     )
   }
