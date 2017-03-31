@@ -1,4 +1,4 @@
-export default function saga(state = 0, action) {
+function counter(state = 0, action) {
   switch (action.type) {
     case 'INCREMENT':
       return state + 1
@@ -11,4 +11,4 @@ export default function saga(state = 0, action) {
   }
 }
 
-export default saga;
+export default counter;

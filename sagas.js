@@ -3,7 +3,7 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 
 
 export function* helloSaga() {
-  console.log('Hello Sagas!')
+  console.log('Hello Sagas OLD!')
 }
 
 // Our worker Saga: will perform the async increment task
