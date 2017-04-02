@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import posts from './posts';
-import saga from './saga';
+import counter from './counter';
 
-const rootReducer = combineReducers({posts, saga, routing: routerReducer });
+const rootReducer = combineReducers({posts, counter, routing: routerReducer });
 
 export default rootReducer;

@@ -1,39 +1,52 @@
 import "babel-polyfill"
 
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
+
+import { render } from 'react-dom';
+
+import {createStore, applyMiddleware} from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
 
-import Counter from './Counter'
-import reducer from './reducers/counter'
 import rootSaga from './sagas'
+import rootReducer from './reducers/index'
 
+import Grid from './Grid'
+import post from './data/posts';
+import saga from './data/saga';
+
+import App from './App';
+import store from './store'
+/*
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(
-  reducer,
-  applyMiddleware(sagaMiddleware)
-)
+
+const defaultState = {
+    post,
+    saga
+};
+
+const store = createStore(rootReducer, defaultState, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 
 const action = type => store.dispatch({type})
-
-const Root = () => {
-  return (
-    <Counter
-      value={store.getState()}
-      onIncrement={() => action('INCREMENT')}
-      onDecrement={() => action('DECREMENT')}
-      onIncrementAsync={() => action('INCREMENT_ASYNC')}/>
-  )
-}
-
+*/
+/*
 function render() {
-  ReactDOM.render(
-    <Root/>,
-    document.getElementById('root')
-  )
+    ReactDOM.render(
+        <Grid/>, document.getElementById('root'))
 }
+*/
+const router = (
+  <Provider store={store}>
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+    <IndexRoute component={Grid}></IndexRoute>
+    </Route>
+  </Router>
+  </Provider>
+)
 
-render()
-store.subscribe(render)
+render(router, document.getElementById('root'));
+//render()
+store.subscribe(Grid)

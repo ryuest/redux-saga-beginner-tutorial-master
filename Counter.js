@@ -15,15 +15,8 @@ const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) =>
         </button>
         <hr />
         <div>
-          Clicked: {value} times
+          Clicked: {value} value times
         </div>
       </div>
-
-Counter.propTypes = {
-  value: PropTypes.number.isRequired,
-  onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired,
-  onIncrementAsync: PropTypes.func.isRequired
-}
 
 export default Counter
