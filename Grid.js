@@ -44,6 +44,7 @@ class Sport extends React.Component {
                   onIncrementAsync={() => action('INCREMENT_ASYNC')}
                 />
 
+<<<<<<< Updated upstream
             </header>
         </div>
       )
@@ -62,6 +63,39 @@ const Grid = React.createClass({
       </div>
     )
   }
+=======
+//<h2 className="fl">{post.likes}</h2>
+//<button onClick={this.props.increment.bind(null, 0)} className="likes">&hearts; {post.likes}</button>
+
+const Root = () => {
+  return (
+    <Counter
+      value={select(store.getState())}
+      onIncrement={() => action('INCREMENT')}
+      onDecrement={() => action('DECREMENT')}
+      onIncrementAsync={() => action('INCREMENT_ASYNC')}/>
+  )
+}
+
+function select(state) {
+  return state.counter
+}
+
+const Grid = React.createClass({
+    render() {
+
+        const post = this.props.posts[0];
+        {console.log(select(store.getState()))}
+        return (
+
+            <div className="photo-grid">
+                <Root/>
+
+                  <Sport i={0} post={post} {...this.props}/>
+            </div>
+        )
+    }
+>>>>>>> Stashed changes
 });
 //
 export default Grid;

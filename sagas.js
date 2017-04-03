@@ -3,7 +3,11 @@ import { put, call, takeEvery } from 'redux-saga/effects'
 
 
 export function* helloSaga() {
+<<<<<<< Updated upstream
   console.log('Hello Sagas!')
+=======
+  console.log('Hello Sagas OLD2!')
+>>>>>>> Stashed changes
 }
 
 // Our worker Saga: will perform the async increment task
